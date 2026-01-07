@@ -7,7 +7,7 @@ body
 }
 
 header {
-  background-color:#1f2937; 
+  background-color:  #3a6d54;; 
 }
 
 .elements {
@@ -35,7 +35,7 @@ a {
 }
 
 .main-text {
-  font-size: 48px;
+  font-size: 42px;
   color: #f9faf8; 
   font-weight: 900;
   margin: 0;
@@ -51,11 +51,11 @@ h1 {
   margin: 0;
 }
 
-button {
+.bouton {
   background-color: #3882f6;
   color: white;
   padding: 10px;
-  margin: 15px;
+  margin: 20px;
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid white;
@@ -89,8 +89,39 @@ button {
   margin: 30px;
 }
 
-.information {
-  padding: 5% 10%;
+.lien-texte {
+  color: #1f2937;
+  text-decoration: underline;
+}
+
+.présentation {
+  padding: 2% 10%; 
+  text-align: center;
+}
+.cta {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0 10%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.texte-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 700px;
+  margin: 0;
+}
+
+.image-cta {
+  display: flex;
+}
+
+
+.services {
+  padding: 2% 10%;
   text-align: center;
 }
 
@@ -103,6 +134,11 @@ button {
   flex-wrap: nowrap; /* toutes sur une ligne */
 }
 
+.cards > a:hover img {
+  transform:scale(1.05);
+  filter: brightness(0.8);
+}
+
 .cards img {
   width: 100%;
   max-width: 100%;/* empêche le débordement sur mobile */
@@ -110,9 +146,10 @@ button {
   border-radius: 5px;
   border: 2px solid #3882f6; 
   display: block; /* évite l'espcace blanc en bas de l'image */
+  transition: transform 0.2s ease;
 }
 
-.cards > div {  /* selecteur enfant direct, donc ici cible les enfants de cards mais pas leurs enfants à eux */
+.cards > a {  /* selecteur enfant direct, donc ici cible les enfants de cards mais pas leurs enfants à eux */
   display: flex;
   flex-direction: column;
   align-items: center; /* centre image + texte horizontalement */
@@ -120,6 +157,8 @@ button {
   width: 220px; /*largeur fixe de la card*/
   padding: 16px;
   box-sizing: border-box;
+  color: #1f2937;
+  cursor: pointer;
 }
 
 h2 {
