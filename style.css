@@ -2,6 +2,8 @@
 body
  {
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
 }
@@ -29,9 +31,11 @@ header {
 }
 
 a {
-  font-size: 18px;
+  font-size: 16px;
   color: #e5e7eb;
   text-decoration: none;
+  color: inherit;       /* même couleur que le texte */
+  font-weight: 500;     /* optionnel */
 }
 
 .main-text {
@@ -43,10 +47,11 @@ a {
 
 h1 {
   margin: 0;
+  line-height: 1.2;
 }
 
 .secondary-text {
-   font-size: 18px;
+  font-size: 18px;
   color: #e5e7eb;
   margin: 0;
 }
@@ -59,6 +64,11 @@ h1 {
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid white;
+  transition: background-color 0.2 ease;
+}
+
+.bouton:hover {
+  background-color: darkblue;
 }
 
 .hero {
@@ -161,6 +171,52 @@ h1 {
   cursor: pointer;
 }
 
+.avis {
+  max-width: 900px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.avis-list {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.avis-item {
+  max-width: 260px;
+  font-style: italic;
+}
+
+.stars {
+  color: #f5b301;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.avis-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.avis-source {
+  margin-top: 32px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.avis-source a {
+  opacity: 1;
+  color: #000; /* ou ta couleur principale */
+  font-weight: 500; /* optionnel */
+}
+
+.zone {
+  text-align: center;
+}
+
 h2 {
   font-size: 36px;
   color: #1f2937;
@@ -168,17 +224,34 @@ h2 {
   text-align: center;
 }
 
-.quote {
+.a-propos {
   background-color: #e5e7eb;
-  font-size: 36px;
   color: #1f2937;
   display: flex;
-  flex-direction: column;
-  padding: 70px 20%;
-  margin: 60px auto;
+  flex: 1;
+  margin: 0;
+  padding: 0 10%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.quote-text {
+.texte-a-propos {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-a-propos {
+  display: flex;
+}
+
+.photo-a-propos img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 30px;
+}
+
+.a-propos-text {
   font-style: italic;
   font-weight: 300;
   text-align: center;
@@ -200,7 +273,7 @@ h2 {
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  margin: 5% 20%;
+  margin: 0;
   padding: 20px; 
 }
 
