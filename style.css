@@ -8,6 +8,8 @@ body
   padding: 0;
 }
 
+
+
 header {
   background-color:  #2f2559; 
   color: #ffffff;
@@ -15,7 +17,7 @@ header {
 
 .elements {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   margin: 0;
   padding: 20px 10%;
 }
@@ -28,12 +30,12 @@ header {
 
 .links {
   display: flex;
-  gap: 20px
+  gap: 20px;
+  
 }
 
 a {
   font-size: 16px;
-  color: #e5e7eb;
   text-decoration: none;
   color: inherit;       /* même couleur que le texte */
   font-weight: 500;     /* optionnel */
@@ -72,7 +74,7 @@ h1 {
   background-color: #e8e6F2;
 }
 
-.bouton-foncé {
+.bouton-fonce {
   background-color: #3a2d6f;
   color: #ffffff;
   padding: 10px;
@@ -80,12 +82,14 @@ h1 {
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid white;
-  transition: background-color 0.2 ease;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; 
 }
 
-.bouton-foncé:hover {
+.bouton-fonce:hover {
   background-color: #241c47; 
-  transform: translateY(1px);
+  border-color: #e8e6F2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transform: translateY(-2px);
 }
 
 .hero {
@@ -101,8 +105,9 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 700px;
+  max-width: 100%;
   margin: 0;
+  padding: 5%;
 }
 
 .hero-img {
@@ -110,11 +115,12 @@ h1 {
 }
 
 .hero-img img {
-  max-width: 300px;
-  width: 100%;
+  max-width: 400px;
+  width: auto;
   height: auto;
   margin: 30px;
   border: 1px solid #000;
+  border-radius: 10px;
 }
 
 .lien-texte {
@@ -122,7 +128,7 @@ h1 {
   text-decoration: underline;
 }
 
-.présentation {
+.presentation {
   padding: 2% 10%; 
   text-align: center;
   background-color: #ffffff;
@@ -153,9 +159,10 @@ h1 {
 
 .services {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem; 
+  padding: 1rem 2%; 
   text-align: center;
   background-color: #f2eef7;
   color: #1f2937;
@@ -163,12 +170,13 @@ h1 {
 
 .cards {
   display: flex;
+  flex: 1;
   align-items: stretch; /* même hauteur pour toutes les cards */
-  justify-content: flex-start; /* centre le bloc horizontalement  */
+  justify-content: space-between; /* centre le bloc horizontalement  */
   gap: 40px;
-  margin: 40px auto 0;
-  flex-wrap: nowrap; /* toutes sur une ligne */
-  max-width: 1400px;
+  margin: 20px auto 0;
+  flex-wrap: wrap; 
+  
 } 
 
 .cards > a:hover img {
@@ -180,7 +188,7 @@ h1 {
   width: 100%;
   max-width: 100%;/* empêche le débordement sur mobile */
   height: auto;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid #000; 
   display: block; /* évite l'espcace blanc en bas de l'image */
   transition: transform 0.2s ease;
@@ -188,10 +196,11 @@ h1 {
 
 .cards > a {  /* selecteur enfant direct, donc ici cible les enfants de cards mais pas leurs enfants à eux */
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center; /* centre image + texte horizontalement */
   gap: 12px; 
-  width: 220px; /*largeur fixe de la card*/
+  width: 220px;
   padding: 16px;
   box-sizing: border-box;
   color: #1f2937;
@@ -200,7 +209,8 @@ h1 {
 
 .cta-bouton {
   display: flex;
-  justify-content: start;
+  /*justify-content: start;ou ?? à voir s'il est mieux là ou au milieu*/
+  justify-content: center;
   align-items: center;
 }
 
@@ -210,6 +220,7 @@ h1 {
   text-align: center;
   background-color: #f2eef7;
   color: #1f2937;
+  border-radius: 10px;
 }
 
 .avis-list {
@@ -265,6 +276,9 @@ h2 {
 
 .zone > img {
   border: 1px solid #000;
+  border-radius: 10px;
+  width: auto;
+  max-width: 1400px;
 }
 
 p {
@@ -297,6 +311,7 @@ text-align: left;
   height: auto;
   margin: 30px;
   border: 1px solid #000;
+  border-radius: 10px;
 }
 
 .a-propos-text {
@@ -315,7 +330,6 @@ text-align: left;
 .action {
   background-color: #2f2559;
   color: #ffffff;
-  border-radius: 5px;
   display: flex;
   justify-content: center;
   gap: 5rem; 
@@ -339,7 +353,7 @@ text-align: left;
   display: flex;
 }
 
-.action-texte {
+.action-text {
   display: flex;
 }
 
@@ -349,3 +363,35 @@ footer {
   text-align: center;
   padding: 20px;
 }
+@media screen and (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+    text-align: center;
+  }
+  .text-hero {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .hero-img img {
+    max-width: 80%;
+    margin: 0 0 20px 0;
+  }
+  .main-text {
+    font-size: clamp(28px, 5vw, 42px);
+  }
+  .secondary-text {
+    font-size: clamp(16px, 3vw, 18px);
+  }
+  .bouton-clair {
+    margin: 10px  0;
+  }
+  .a-propos {
+    flex-direction: column;
+  }
+  .elements {
+    justify-content: center;
+  }
+} 
