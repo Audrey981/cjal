@@ -12,3 +12,13 @@ document.querySelector('.slider-next').addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const answer = q.nextElementSibling;
+    const isActive = answer.classList.contains('active');
+    document.querySelectorAll('.faq-answer').forEach( a => a.classList.remove('active'));
+    if (!isActive) answer.classList.add('active');
+  });
+});
