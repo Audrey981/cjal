@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://audrey981.github.io/cjal/sitemap.xml
