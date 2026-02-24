@@ -266,7 +266,10 @@ h1 {
 .zone {
   text-align: center;
   background-color: #2f2559;
+  padding-bottom: 1rem;              
 }
+  
+
 
 h2 {
   font-size: 36px;
@@ -278,12 +281,36 @@ h2 {
   color: #ffffff;
 }
 
-.zone > img {
+/*.zone > img {
   border: 1px solid #000;
   border-radius: 10px;
   width: auto;
   max-width: 1400px;
+}*/
+.zone img { display: none; }  /* Cache ton ancienne image */
+
+.carte-interactive {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  /*height: 0;
+  padding-bottom: 30%;   Ratio hauteur/largeur carte  j'enlève car remplacé par*/
+  aspect-ratio: 16/9;
+  margin: 1rem auto 3rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
 }
+
+.carte-interactive iframe {
+  position: absolute;
+  top: -65px; left: 0;
+  width: 100% !important;
+  height: 115% !important;
+  border-radius: 12px;
+  clip-path: inset(0 0 0 0 round 12px); /* enfin problème réglé..!!*/
+}
+
 
 p {
 text-align: left;
@@ -407,6 +434,15 @@ footer {
     text-align: center;                /* Texte nickel dedans */
     width: fit-content;                /* Largeur auto au texte */
   }
+  .carte-interactive {
+    padding-bottom: 45%;       /* Plus haute sur tablette */
+    max-width: 95vw;           /* Plein écran safe */
+    margin: 1rem auto 2rem auto;  /* Moins d'espace bas */
+  }
+  
+  .carte-interactive iframe {
+    top: -60px;                /* Ajuste barre noire */
+  }
 
 } 
 @media (max-width: 700px) {
@@ -443,7 +479,30 @@ footer {
   .cards > a {
     gap: 8px !important;               /* Moins d'espace icône/texte */
   }
+  .carte-interactive {
+    padding-bottom: 50%;       /* Quasi-carrée mobile */
+    border-radius: 8px !important;        /* Coins moins arrondis */
+    margin: 1.5rem auto 0 auto;
+    width: 94vw;
+    max-width: 94vw;
+    box-sizing: border-box;
+  }
+  
+  .carte-interactive iframe {
+    top: -60px;
+    height: 110% !important; 
+    clip-path: inset(0 0 0 0 round 8px); 
+  }
+  
+  .zone {
+    padding-bottom: 2rem;      /* Plus d'air section mobile */
+  }
+  
+  .zone > h2 {
+    font-size: clamp(28px, 8vw, 32px);  /* Titre responsive */
+  }
 }
+
 
 /*Style page Services*/
 .hero-service {
