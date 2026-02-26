@@ -34,11 +34,26 @@ header {
   
 }
 
+.links a {
+  font-size: 1rem;
+}
+
 a {
-  font-size: 16px;
   text-decoration: none;
   color: inherit;       /* même couleur que le texte */
   font-weight: 500;     /* optionnel */
+}
+
+a[href="pages/services.html"] {
+  font-size: inherit;
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+}
+
+a.bouton-clair {
+    color: #1f2937;
+    font-weight: 800;
 }
 
 .main-text {
@@ -51,6 +66,7 @@ a {
 h1 {
   margin: 0;
   line-height: 1.2;
+  font-size: 42px;
 }
 
 .secondary-text {
@@ -272,7 +288,7 @@ h1 {
 
 
 h2 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 900;
   text-align: center;
 }
@@ -287,14 +303,14 @@ h2 {
   width: auto;
   max-width: 1400px;
 }*/
-.zone img { display: none; }  /* Cache ton ancienne image */
+.zone img { display: none; }  /* Cache mon ancienne image */
 
 .carte-interactive {
   position: relative;
   width: 100%;
   max-width: 1000px;
   /*height: 0;
-  padding-bottom: 30%;   Ratio hauteur/largeur carte  j'enlève car remplacé par*/
+  padding-bottom: 30%;   Ratio hauteur/largeur carte  j'enlève car remplacé par aspect-ratio*/
   aspect-ratio: 16/9;
   margin: 1rem auto 3rem auto;
   border-radius: 12px;
@@ -387,121 +403,6 @@ footer {
   text-align: center;
   padding: 20px;
 }
-@media screen and (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 5%;
-    text-align: center;
-  }
-  .text-hero {
-    width: 100%;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .hero-img img {
-    max-width: 80%;
-    margin: 0 0 20px 0;
-  }
-  .main-text {
-    font-size: clamp(28px, 5vw, 42px);
-  }
-  .secondary-text {
-    font-size: clamp(16px, 3vw, 18px);
-  }
-  .bouton-clair {
-    margin: 10px  0;
-  }
-  .a-propos {
-    flex-direction: column;
-  }
-  .elements {
-    justify-content: center;
-  }
-  .zone img {
-    max-width: 95vw;
-    width: 100%;
-    height: auto;
-  }
-  
-  .hero-img img {
-    margin-inline: auto !important;  /* Centre horizontalement image hero */
-    display: block;                  /* Obligatoire pour margin:auto */
-  }
- .bouton-clair, .bouton-fonce {
-    display: block !important;         /* Bloc pour centrage parfait */
-    margin-inline: auto !important;    /* Centre le bouton lui-même */
-    text-align: center;                /* Texte nickel dedans */
-    width: fit-content;                /* Largeur auto au texte */
-  }
-  .carte-interactive {
-    padding-bottom: 45%;       /* Plus haute sur tablette */
-    max-width: 95vw;           /* Plein écran safe */
-    margin: 1rem auto 2rem auto;  /* Moins d'espace bas */
-  }
-  
-  .carte-interactive iframe {
-    top: -60px;                /* Ajuste barre noire */
-  }
-
-} 
-@media (max-width: 700px) {
-  .cards > a { 
-    width: 100%; max-width: 320px; margin: 0 auto 20px; }
-  .cta {
-    flex-direction: column;
-    gap: 1rem; 
-  }
-  .presentation { 
-    padding: 2% 5%; }
-
-  .services { 
-    padding: 2% 5%; }
-
-  .h2 {
-    font-size: clamp(24px, 6vw, 32px);
-  }
-  .avis-source {
-  padding: 0 2rem; /* espace sur les côtés */
-  font-size: 0.85rem; /* un peu plus petit */
-  line-height: 1.4;
-}
-
-.avis-source a {
-  display: inline-block; /* empêche les sauts de ligne bizarres */
-  word-break: keep-all; /* évite de casser "Google" */
-}
-.cards img {
-    max-height: 120px !important;      /* Icône plus petite */
-    width: auto !important;            /* Garde ratio */
-    height: auto !important;
-  }
-  .cards > a {
-    gap: 8px !important;               /* Moins d'espace icône/texte */
-  }
-  .carte-interactive {
-    padding-bottom: 50%;       /* Quasi-carrée mobile */
-    border-radius: 8px !important;        /* Coins moins arrondis */
-    margin: 1.5rem auto 0 auto;
-    width: 94vw;
-    max-width: 94vw;
-    box-sizing: border-box;
-  }
-  
-  .carte-interactive iframe {
-    top: -60px;
-    height: 110% !important; 
-    clip-path: inset(0 0 0 0 round 8px); 
-  }
-  
-  .zone {
-    padding-bottom: 2rem;      /* Plus d'air section mobile */
-  }
-  
-  .zone > h2 {
-    font-size: clamp(28px, 8vw, 32px);  /* Titre responsive */
-  }
-}
 
 
 /*Style page Services*/
@@ -541,12 +442,12 @@ footer {
   margin: 0 5rem 0 0;
 }
 .text-hero-service h1 {
-  font-size: 2.5rem;
+  font-size: 42px;
   margin: 0 0 0.5rem 0;
   color: #1f2937;
 }
 .text-hero-service .secondary-text {
-  font-size: 1.2rem;
+  font-size: 18px;
   line-height: 1.5;
   margin: 0;  
   color: #1f2937;
@@ -570,7 +471,7 @@ footer {
 }
 
 .cards > [class*="card-"]:hover img {
-  transform: scale(1.05);       /* ✅ + img bonus */
+  transform: scale(1.05);       
   filter: sepia(0.6);
 }
 
@@ -767,43 +668,6 @@ footer {
 }
 
 
-
-
-@media (max-width: 768px) {
-    .hero-service {
-        padding: 0 5%;
-        min-height: 60vh;
-        background-attachment: scroll;  /* Fixe souvent buggé sur mobile */
-    }
-    .text-hero-service h1 {
-        font-size: 1.8rem;
-    }
-    .text-hero-service .secondary-text {
-        font-size: 1rem;
-    }
-
-  .slide {
-    flex: 0 0 280px;
-    height: 220px;
-  }
-  
-  .slider-container {
-    padding: 1rem 3rem;
-  }
-  
-  .slider-prev, .slider-next {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .slide {
-    flex: 0 0 250px;
-  }
-}
-
 /* page contact*/
 
 .coordonnees {
@@ -898,18 +762,7 @@ footer {
   margin: 0;
   padding: 1rem;
 }
-@media (max-width: 700px){
-  .coordonnees,
-  .feature{
-    flex-direction: column;
-    align-items: stretch;
-  }
 
-  .coordonnees{
-    padding: 1rem 5%;
-    gap: 1.5rem;
-  }
-}
 
 /*page à propos*/
 
@@ -993,6 +846,187 @@ footer {
   margin: 0;
   padding: 1rem;
 }
+/*Media queries */
+
+@media screen and (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+    text-align: center;
+  }
+  .text-hero {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .hero-img img {
+    max-width: 80%;
+    margin: 0 0 20px 0;
+  }
+  .main-text {
+    font-size: clamp(28px, 5vw, 42px);
+  }
+  .secondary-text {
+    font-size: clamp(16px, 3vw, 18px);
+  }
+  .bouton-clair {
+    margin: 10px  0;
+  }
+  .a-propos {
+    flex-direction: column;
+  }
+  .elements {
+    justify-content: center;
+  }
+  .zone img {
+    max-width: 95vw;
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-img img {
+    margin-inline: auto !important;  /* Centre horizontalement image hero */
+    display: block;                  /* Obligatoire pour margin:auto */
+  }
+ .bouton-clair, .bouton-fonce {
+    display: block !important;         /* Bloc pour centrage parfait */
+    margin-inline: auto !important;    /* Centre le bouton lui-même */
+    text-align: center;                /* Texte nickel dedans */
+    width: fit-content;                /* Largeur auto au texte */
+  }
+  .carte-interactive {
+    padding-bottom: 45%;       /* Plus haute sur tablette */
+    max-width: 95vw;           /* Plein écran safe */
+    margin: 1rem auto 2rem auto;  /* Moins d'espace bas */
+  }
+  
+  .carte-interactive iframe {
+    top: -60px;                /* Ajuste barre noire */
+  }
+  .services {
+    padding: 2rem 1.5rem;
+  }
+  
+  .services .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  
+  .cta .bouton-fonce {
+    margin: 0 auto;
+    width: fit-content;
+    padding: 1rem 2.5rem;
+  }
+  /* UNIFORMITÉ POLICES */
+  @media (max-width: 900px) {
+
+  /* Base : le texte descend doucement vers 16px sur petits écrans */
+  body {
+    font-size: clamp(16px, 4.5vw, 18px);
+    line-height: 1.6; 
+  }
+
+  h1 {
+    font-size: clamp(28px, 5.2vw, 42px);
+    line-height: 1.2; /* souvent mieux qu’1.4 pour un gros titre */
+  }
+
+  h2 {
+    font-size: clamp(22px, 4.2vw, 28px);
+    line-height: 1.25;
+  }
+
+  .services p,
+  .services .text,
+  .services a {
+    font-size: clamp(15px, 3.8vw, 16px);
+    line-height: 1.6;
+  }
+  .links a {
+  font-size: clamp(14px, 3.5vw, 16px);
+}
+
+ 
+}
+
+
+
+
+} 
+@media (max-width: 700px) {
+  .cards > a { 
+    width: 100%; max-width: 320px; margin: 0 auto 20px; }
+  .cta {
+    flex-direction: column;
+    gap: 1rem; 
+  }
+  .presentation { 
+    padding: 2% 5%; }
+
+  .services { 
+    padding: 2% 5%; }
+
+
+  .avis-source {
+  padding: 0 2rem; /* espace sur les côtés */
+  font-size: 0.85rem; /* un peu plus petit */
+  line-height: 1.4;
+}
+
+.avis-source a {
+  display: inline-block; /* empêche les sauts de ligne bizarres */
+  word-break: keep-all; /* évite de casser "Google" */
+}
+.cards img {
+    max-height: 120px !important;      /* Icône plus petite */
+    width: auto !important;            /* Garde ratio */
+    height: auto !important;
+  }
+  .cards > a {
+    gap: 8px !important;               /* Moins d'espace icône/texte */
+  }
+  .carte-interactive {
+    padding-bottom: 50%;       /* Quasi-carrée mobile */
+    border-radius: 8px !important;        /* Coins moins arrondis */
+    margin: 1.5rem auto 0 auto;
+    width: 94vw;
+    max-width: 94vw;
+    box-sizing: border-box;
+  }
+  
+  .carte-interactive iframe {
+    top: -60px;
+    height: 110% !important; 
+    clip-path: inset(0 0 0 0 round 8px); 
+  }
+  
+  .zone {
+    padding-bottom: 2rem;      /* Plus d'air section mobile */
+  }
+  
+  .zone > h2 {
+    font-size: clamp(28px, 8vw, 32px);  /* Titre responsive */
+  }
+}
+
 @media (max-width: 700px){
   .engagement,
   .feature-apropos{
@@ -1006,14 +1040,54 @@ footer {
   
   }
 }
-/* Headings compacts mobile */
-@media (max-width: 768px) {
-  h1, h2, h3, h4, h5, h6 {
-    line-height: 1 !important;  
-    font-size: 90%;             
+@media (max-width: 700px){
+  .coordonnees,
+  .feature{
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  h1 { font-size: 1.8rem !important; }  /* H1 spécifique */
+
+  .coordonnees{
+    padding: 1rem 5%;
+    gap: 1.5rem;
+  }
+
 }
 
+
+@media (max-width: 768px) {
+    .hero-service {
+        padding: 0 5%;
+        min-height: 60vh;
+        background-attachment: scroll;  /* Fixe souvent buggé sur mobile */
+    }
+   .text-hero-service h1 {
+  font-size: clamp(28px, 5vw, 42px);  /* ≈30px 375px */
+}
+
+    .text-hero-service .secondary-text {
+        font-size: 1rem;
+    }
+
+  .slide {
+    flex: 0 0 280px;
+    height: 220px;
+  }
+  
+  .slider-container {
+    padding: 1rem 3rem;
+  }
+  
+  .slider-prev, .slider-next {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    flex: 0 0 250px;
+  }
+}
 
