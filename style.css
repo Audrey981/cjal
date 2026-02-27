@@ -83,12 +83,19 @@ h1 {
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid #ffffff;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;       /* Respecte largeur parent */
+  max-width: 100%;             /* Jamais plus large */
+  box-sizing: border-box;      /*  Inclut padding */
 }
 
 .bouton-clair:hover {
   background-color: #e8e6F2;
+  border-color: #e8e6F2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transform: translateY(-2px);
 }
+
 
 .bouton-fonce {
   background-color: #3a2d6f;
@@ -101,7 +108,7 @@ h1 {
   display: inline-block;       /* Respecte largeur parent */
   max-width: 100%;             /* Jamais plus large */
   box-sizing: border-box;      /*  Inclut padding */
-  padding: 1rem 2rem;
+  padding: 10px;
 }
 
 .bouton-fonce:hover {
@@ -200,7 +207,9 @@ h1 {
 
 .cards > a:hover img {
   transform:scale(1.05);
-  filter: sepia(0.6) hue-rotate(-10deg) brightness(1.05);
+  filter: brightness(0.9) sepia(0.2) saturate(2) hue-rotate(220deg);
+
+
 }
 
 .cards img {
@@ -296,36 +305,13 @@ h2 {
   color: #ffffff;
 }
 
-/*.zone > img {
+.zone img {
   border: 1px solid #000;
   border-radius: 10px;
   width: auto;
   max-width: 1400px;
-}*/
-.zone img { display: none; }  /* Cache mon ancienne image */
-
-.carte-interactive {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  /*height: 0;
-  padding-bottom: 30%;   Ratio hauteur/largeur carte  j'enlève car remplacé par aspect-ratio*/
-  aspect-ratio: 16/9;
-  margin: 1rem auto 3rem auto;
-  border-radius: 12px;
-  overflow: hidden;
-  border: none;
 }
-
-.carte-interactive iframe {
-  position: absolute;
-  top: -65px; left: 0;
-  width: 100% !important;
-  height: 115% !important;
-  border-radius: 12px;
-  clip-path: inset(0 0 0 0 round 12px); /* enfin problème réglé..!!*/
-}
-
+.zone a{ display: inline-block; }
 
 p {
 text-align: left;

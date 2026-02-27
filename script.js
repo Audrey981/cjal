@@ -41,3 +41,4 @@ document.querySelectorAll('.faq-question').forEach(q => {
     if (!isActive) answer.classList.add('active');
   });
 });
+
