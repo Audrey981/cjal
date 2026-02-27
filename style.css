@@ -35,7 +35,7 @@ header {
 }
 
 .links a {
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 a {
@@ -519,6 +519,7 @@ footer {
   padding: 1rem 10vw;
   scrollbar-width: none; /*firefox*/
   -ms-overflow-style: none; /* IE et edge*/
+  scroll-padding-inline: 10vw;
 }
 
 .slider-container::-webkit-scrollbar {
@@ -642,10 +643,11 @@ footer {
   cursor: pointer;
   transition: background 0.25s ease;
 }
-
+/*
 .faq-question:hover {
   background: rgba(255, 255, 255, 0.9);
-}
+  border-radius: 12px;
+}*/
 
 .faq-toggle {
   font-size: 1.4rem;
@@ -670,17 +672,22 @@ footer {
 
 /* page contact*/
 
-.coordonnees {
-  background-color: #ffffff;
-  color: #1f2937;
+.blocs {
   display: flex;
-  flex: 1;
-  margin: 0; 
-  padding: 1rem 10%;
-  gap: clamp(1.5rem, 2vw, 4rem); 
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
+  gap: clamp(1.5rem, 2vw, 4rem);
+  justify-items: stretch;
+  justify-content: center;
+  padding: 1rem 10%;
+}
+/* chaque “carte” */
+.blocs > div{
+  flex: 1 1 420px;      /* même comportement pour tous: largeur mini ~420px puis wrap */
+  max-width: 600px;     /* optionnel: évite des cartes trop larges sur très grand écran */
+  margin: 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f2eef7;
 }
 
 .coordonnees-liste {
@@ -718,19 +725,9 @@ footer {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  margin-top: 1rem;
 }
-.feature {
-  background-color: #ffffff;
-  color: #1f2937;
-  display: flex;
-  flex: 1;
-  margin: 0;
-  padding: 1rem 10%;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
+
 
 .zone-intervention {
   background-color:#f2eef7;
