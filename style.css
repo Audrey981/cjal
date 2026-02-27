@@ -83,7 +83,7 @@ h1 {
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid #ffffff;
-  transition: background-color 0.2 ease;
+  transition: background-color 0.2s ease;
 }
 
 .bouton-clair:hover {
@@ -93,7 +93,6 @@ h1 {
 .bouton-fonce {
   background-color: #3a2d6f;
   color: #ffffff;
-  padding: 10px;
   margin: 20px;
   font-weight: 800;
   border-radius: 20px;
@@ -515,8 +514,9 @@ footer {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   gap: 1.5rem;
-  padding: 1rem 4rem;
+  padding: 1rem 10vw;
   scrollbar-width: none; /*firefox*/
   -ms-overflow-style: none; /* IE et edge*/
 }
@@ -527,7 +527,7 @@ footer {
 
 .slide {
   flex: 0 0 300px; 
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -1091,3 +1091,5 @@ footer {
   }
 }
 
+/* Recommandé sur tout le site */
+*, *::before, *::after { box-sizing: border-box; }

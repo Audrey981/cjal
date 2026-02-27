@@ -1,17 +1,19 @@
-// Scroll fluide au clic flèches
-document.querySelector('.slider-prev').addEventListener('click', () => {
-  document.querySelector('.slider-container').scrollBy({
-    left: -320,  // Scroll d'1 photo (300px + gap)
-    behavior: 'smooth'
-  });
-});
+const container = document.querySelector('.slider-container');
+const slides = Array.from(container.querySelectorAll('.slide'));
+let index = 0;
 
-document.querySelector('.slider-next').addEventListener('click', () => {
-  document.querySelector('.slider-container').scrollBy({
-    left: +320,  // Scroll d'1 photo
-    behavior: 'smooth'
+function goTo(i){
+  index = Math.max(0, Math.min(i, slides.length - 1));
+  slides[index].scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest',
+    inline: 'center'
   });
-});
+}
+
+document.querySelector('.slider-prev').addEventListener('click', () => goTo(index - 1));
+document.querySelector('.slider-next').addEventListener('click', () => goTo(index + 1));
+
 
 
 document.querySelectorAll('.faq-question').forEach(q => {
