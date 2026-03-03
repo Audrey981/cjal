@@ -42,3 +42,7 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.querySelector("#year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
