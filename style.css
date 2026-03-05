@@ -454,7 +454,7 @@ footer a{
   flex-direction: column;
   align-items: center; /* centre image + texte horizontalement */
   gap: 12px; 
-  width: 275px;
+  width: 250px;
   padding: 16px;
   box-sizing: border-box;
   color: #1f2937;
