@@ -3,7 +3,7 @@
   "cleanUrls": true,
      "rewrites": [
     {
-      "source": "/:slug",
+      "source": "/:slug(?!index.html$)([^/]+)",
       "destination": "/pages/:slug.html"
     }
   ]
