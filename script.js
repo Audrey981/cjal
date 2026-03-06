@@ -1,6 +1,18 @@
 const container = document.querySelector('.slider-container');
-const slides = Array.from(container.querySelectorAll('.slide'));
-let index = 0;
+if (container) {  // ✅ Vérif ajoutée
+  const slides = Array.from(container.querySelectorAll('.slide'));
+  let index = 0;
+
+  function goTo(i){
+    index = Math.max(0, Math.min(i, slides.length - 1));
+    slides[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  }
+}
+
 
 function goTo(i){
   index = Math.max(0, Math.min(i, slides.length - 1));
