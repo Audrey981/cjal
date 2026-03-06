@@ -1103,3 +1103,23 @@ footer a{
 
 /* Recommandé sur tout le site */
 *, *::before, *::after { box-sizing: border-box; }
+
+/* fil d'ariane */
+.breadcrumb {
+  padding: 0.5rem 1rem;
+  background: #f8fafc;  /* Match ton hero */
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.breadcrumb ol {
+  display: flex;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+}
+.breadcrumb a { color: #666; }
+.breadcrumb li:not(:last-child)::after { content: " > "; color: #999; }
+
+
+
+
