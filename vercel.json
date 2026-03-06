@@ -1,10 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-     "rewrites": [
-    {
-      "source": "/:slug(?!index.html$)([^/]+)",
-      "destination": "/pages/:slug.html"
-    }
-  ]
+  "cleanUrls": true
 }
