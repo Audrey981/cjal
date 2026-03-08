@@ -4,6 +4,12 @@ if (container) {
   const slides = Array.from(container.querySelectorAll('.slide'));
   let index = 0;
 
+  // Cache positions au init
+  const slidePositions = slides.map(slide => ({
+    left: slide.offsetLeft,
+    width: slide.clientWidth
+  }));
+
   function goTo(i) {
     index = Math.max(0, Math.min(i, slides.length - 1));
     slides[index].scrollIntoView({
@@ -19,19 +25,19 @@ if (container) {
   if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
 
-  // Scroll synchro
+  // Scroll synchro optimisée
   function updateIndexFromScroll() {
     const center = container.scrollLeft + container.clientWidth / 2;
     let closest = 0, minDist = Infinity;
-    slides.forEach((slide, i) => {
-      const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
-      const dist = Math.abs(center - slideCenter);
+    slidePositions.forEach((pos, i) => {
+      const dist = Math.abs(center - (pos.left + pos.width / 2));
       if (dist < minDist) { minDist = dist; closest = i; }
     });
     index = closest;
   }
   container.addEventListener('scroll', () => window.requestAnimationFrame(updateIndexFromScroll));
 }
+
 
 // FAQ (toutes pages avec FAQ)
 document.querySelectorAll('.faq-question').forEach(q => {
