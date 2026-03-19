@@ -1,11 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/index.html",
-      "destination": "/"
-      
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "cjalmultiservices.fr" }],
+      "destination": "https://www.cjalmultiservices.fr/:path*",
+      "permanent": true
     }
   ]
 }
+
