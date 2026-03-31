@@ -944,6 +944,7 @@ footer a{
     margin: 0 auto;
     width: fit-content;
     padding: 1rem 2.5rem;
+  }
   
   /* UNIFORMITÉ POLICES */
   
@@ -980,7 +981,7 @@ footer a{
 
 
 
-} 
+
 @media (max-width: 700px) {
   .cards > a { 
     width: 100%; max-width: 320px; margin: 0 auto 20px; }
