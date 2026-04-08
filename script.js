@@ -54,3 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.querySelector("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+// script.js pour rubrique presse
+document.querySelectorAll('.card-img-zoom img').forEach(function(img){
+  img.addEventListener('click', function(){
+    document.getElementById('lightbox-img').src = this.src;
+    document.getElementById('lightbox-img').alt = this.alt;
+    document.getElementById('lightbox').classList.add('open');
+  });
+});
+
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target !== document.getElementById('lightbox-img')) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
+
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-img').src = '';
+}
