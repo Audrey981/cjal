@@ -9,6 +9,14 @@ body
   overflow-x: hidden; /*pas de scroll horizontal*/
 }
 
+.container {
+  max-width: 1300px;   /* ajuster selon la largeur souhaitée */
+  margin-inline: auto; /* centre le conatainer horizontalement*/
+  padding-inline: clamp(1rem, 5%, 3rem); /*espace intérieur gauche droite : min 16px, idéalement 5% max 48px, s'adapte automoatiquement*/
+  width: 100%; /* prend toute la largeur disponible de son parent dans la limite du max width */
+  box-sizing: border-box; /* padding inclus dans la largeur calculée */
+}
+
 header {
   background-color:  #2f2559; 
   color: #ffffff;
@@ -18,8 +26,9 @@ header {
 .elements {
   display: flex;
   justify-content: end;
+  width: 100%;
   margin: 0;
-  padding: 20px 10%;
+  padding: 20px 0;
 }
 
 .header-logo {
@@ -155,7 +164,7 @@ h1 {
 }
 
 .presentation {
-  padding: 2% 10%; 
+  padding: 2% 0; 
   text-align: center;
   background-color: #ffffff;
   color: #1f2937;
@@ -199,7 +208,7 @@ h1 {
   flex: 1;
   align-items: stretch; /* même hauteur pour toutes les cards */
   justify-content: space-between; /* centre le bloc horizontalement  */
-  gap: 40px;
+  gap: 15px;
   margin: 20px auto 0;
   flex-wrap: wrap; 
 } 
@@ -452,7 +461,7 @@ footer a{
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center; /* centre image + texte horizontalement */
-  gap: 12px; 
+  gap: 5px; 
   width: 250px;
   padding: 16px;
   box-sizing: border-box;
@@ -757,16 +766,19 @@ footer a{
 .engagement {
   background-color: #ffffff;
   color: #1f2937;
-  display: flex;
-  flex: 1;
   margin: 0; 
-  padding: 1rem 10%;
+  padding: 1rem 0;
   gap: clamp(1.5rem, 2vw, 4rem); 
+ 
+}
+.engagement > .container {
+  width: 100%;
+  display: flex;              /* reprend le rôle de .engagement */
+  gap: clamp(1.5rem, 2vw, 4rem);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-
 .engagement-texte {
   background-color:#ffffff;
   display: flex;
@@ -774,8 +786,8 @@ footer a{
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 1rem 5%;
-  max-width: 600px;
+  padding: 1rem 0;
+   max-width: 700px;
   width: 100%;
 }
 
@@ -803,36 +815,14 @@ footer a{
   display: flex;
   flex: 1;
   margin: 0;
-  padding: 1rem 10%;
+  padding: 1rem 0;
   gap: 12px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.presentation-apropos {
-  background-color:#ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 1rem;
-  max-width: 600px;
-  width: 100%;
-   
-}
 
-.infos-apropos {
-  background-color:#ffffff;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 1rem;
-}
 .cards-presse {
   display: flex;
   flex: 1;
