@@ -1,3 +1,5 @@
+AOS.init();
+
 // Slider
 const container = document.querySelector('.slider-container');
 if (container) {
