@@ -15,6 +15,7 @@
   font-display: swap;
 }
 
+
 body {
   font-family: 'Lexend', system-ui, sans-serif;
   font-size: 20px;
@@ -22,6 +23,12 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /*pas de scroll horizontal*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, strong {
+  font-weight: 700;
 }
 
 .container {
@@ -66,7 +73,7 @@ header {
 a {
   text-decoration: none;
   color: inherit;       /* même couleur que le texte */
-  font-weight: 500;     /* optionnel */
+   /* optionnel */
 }
 
 a[href="pages/services.html"] {
@@ -78,13 +85,11 @@ a[href="pages/services.html"] {
 
 a.bouton-clair {
     color: #1f2937;
-    font-weight: 800;
 }
 
 .main-text {
   font-size: 46px;
-  color: #f9faf8; 
-  font-weight: 900;
+  color: #f2eef7; 
   margin: 0;
 }
 
@@ -96,16 +101,15 @@ h1 {
 
 .secondary-text {
   font-size: inherit;
-  color: #e5e7eb;
+  color: #f2eef7;
   margin: 0;
 }
 
 .bouton-clair {
-  background-color: #ffffff;
+  background-color: #f2eef7;
   color: #2f2559;
   padding: 10px;
   margin: 20px;
-  font-weight: 800;
   border-radius: 20px;
   border: 2px solid #ffffff;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -126,7 +130,6 @@ h1 {
   background-color: #3a2d6f;
   color: #ffffff;
   margin: 20px;
-  font-weight: 800;
   border-radius: 20px;
   border: 2px solid white;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; 
@@ -615,7 +618,6 @@ footer a{
   color: white; 
   text-decoration: none;
   border-radius: 20px;
-  font-weight: 600;
   transition: all 0.3s ease;
 }
 .btn-fb:hover {
