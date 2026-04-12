@@ -1,8 +1,23 @@
 
-body
- {
-  font-family: system-ui, -apple-system, 'Segoe UI', "Roboto", sans-serif;
-  font-size: 18px;
+@font-face {
+  font-family: 'Lexend';
+  src: url('fonts/lexend-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('fonts/lexend-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: 20px;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -29,6 +44,7 @@ header {
   width: 100%;
   margin: 0;
   padding: 20px 0;
+  font-size: 0.90em;
 }
 
 .header-logo {
@@ -66,7 +82,7 @@ a.bouton-clair {
 }
 
 .main-text {
-  font-size: 42px;
+  font-size: 46px;
   color: #f9faf8; 
   font-weight: 900;
   margin: 0;
@@ -75,7 +91,7 @@ a.bouton-clair {
 h1 {
   margin: 0;
   line-height: 1.2;
-  font-size: 42px;
+  font-size: 46px;
 }
 
 .secondary-text {
@@ -306,7 +322,7 @@ h1 {
 
 
 h2 {
-  font-size: 28px;
+  font-size: 1.5em;
   font-weight: 900;
   text-align: center;
 }
@@ -392,11 +408,12 @@ text-align: left;
   display: flex;
 }
 
-footer {
+footer, .site-footer {
   background-color:#f2eef7; 
   color: #1f2937;
   text-align: center;
   padding: 20px;
+  font-size: 0.85em;
 }
 footer a{
   margin-inline-start: 20px;
@@ -992,7 +1009,7 @@ footer a{
     top: -60px;                /* Ajuste barre noire */
   }
   .services {
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
   }
   
   .services .cards {
@@ -1013,7 +1030,7 @@ footer a{
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
     text-align: center;
   }
   
@@ -1066,11 +1083,7 @@ footer a{
     flex-direction: column;
     gap: 1rem; 
   }
-  .presentation { 
-    padding: 2% 5%; }
-
-  .services { 
-    padding: 2% 5%; }
+  
 
 
   .avis-source {
@@ -1123,7 +1136,7 @@ footer a{
   }
 
   .engagement{
-    padding: 1rem 5%;
+    padding: 1rem 0;
     gap: 1.5rem;
   
   }
@@ -1136,7 +1149,7 @@ footer a{
   }
 
   .coordonnees{
-    padding: 1rem 5%;
+    padding: 1rem 0;
     gap: 1.5rem;
   }
 
@@ -1199,5 +1212,32 @@ footer a{
 .breadcrumb li:not(:last-child)::after { content: " > "; color: #999; }
 
 
+/* bouton pour remonter */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2f2559;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+}
 
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
 
+#back-to-top:hover {
+  background-color: #241c47;
+  transform: translateY(-3px);
+}
