@@ -3,31 +3,79 @@ if (typeof AOS !== 'undefined') {
 }
 
 // Slider
-const container = document.querySelector('.slider-container');
-if (container) {
-  const slides = Array.from(container.querySelectorAll('.slide'));
-  let index = 0;
-  const slidePositions = slides.map(slide => ({
-    left: slide.offsetLeft,
-    width: slide.clientWidth
-  }));
-  function goTo(i) {
-    index = Math.max(0, Math.min(i, slides.length - 1));
-    slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  }
-  const prevBtn = document.querySelector('.slider-prev');
-  const nextBtn = document.querySelector('.slider-next');
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
-  container.addEventListener('scroll', () => window.requestAnimationFrame(() => {
-    const center = container.scrollLeft + container.clientWidth / 2;
-    let closest = 0, minDist = Infinity;
-    slidePositions.forEach((pos, i) => {
-      const dist = Math.abs(center - (pos.left + pos.width / 2));
-      if (dist < minDist) { minDist = dist; closest = i; }
-    });
-    index = closest;
-  }));
+
+const slides = Array.from(document.querySelectorAll('.slide'));
+let current = 0;
+
+function updateSlider() {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active', 'prev', 'next', 'hidden');
+    if (i === current) {
+      slide.classList.add('active');
+    } else if (i === (current - 1 + slides.length) % slides.length) {
+      slide.classList.add('prev');
+    } else if (i === (current + 1) % slides.length) {
+      slide.classList.add('next');
+    } else {
+      slide.classList.add('hidden');
+    }
+  });
+}
+
+updateSlider();
+
+const prevBtn = document.querySelector('.slider-prev');
+const nextBtn = document.querySelector('.slider-next');
+
+if (prevBtn) prevBtn.addEventListener('click', () => {
+  current = (current - 1 + slides.length) % slides.length;
+  updateSlider();
+});
+
+if (nextBtn) nextBtn.addEventListener('click', () => {
+  current = (current + 1) % slides.length;
+  updateSlider();
+});
+
+slides.forEach((slide, i) => {
+  slide.addEventListener('click', () => {
+    if (i !== current) {
+      current = i;
+      updateSlider();
+    }
+  });
+});
+
+const wrapper = document.querySelector('.slider-wrapper');
+if (wrapper) {
+  wrapper.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (e.deltaY > 0) {
+      current = (current + 1) % slides.length;
+    } else {
+      current = (current - 1 + slides.length) % slides.length;
+    }
+    updateSlider();
+  }, { passive: false });
+}
+
+let touchStartX = 0;
+const track = document.querySelector('.slider-track');
+if (track) {
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+  track.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        current = (current + 1) % slides.length;
+      } else {
+        current = (current - 1 + slides.length) % slides.length;
+      }
+      updateSlider();
+    }
+  });
 }
 
 // FAQ

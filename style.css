@@ -513,60 +513,84 @@ footer a{
   font-size: 18px;
 }
 
-
-.slider-section p {
-  text-align: center;
-}
-
 .slider-section {
   padding: 4rem 0;
   background: #f8fafc;
 }
 
+.slider-section p {
+  text-align: center;
+}
+
 .slider-wrapper {
   position: relative;
-  max-width: 1200px;
-  margin: 2rem auto;
-}
-
-.slider-container {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 1.5rem;
-  padding: 1rem 10vw;
-  scrollbar-width: none; /*firefox*/
-  -ms-overflow-style: none; /* IE et edge*/
-  scroll-padding-inline: 10vw;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 1200px;
 }
 
-.slider-container::-webkit-scrollbar {
-  display: none; /* chrome et safari*/
+.slider-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: visible;
+  padding: 2rem 0;
+  position: relative;
+  height: 380px;
 }
 
 .slide {
-  flex: 0 0 300px; 
-  scroll-snap-align: center;
-  position: relative;
+  position: absolute;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 220px;
+  height: 180px;
+  filter: blur(3px) brightness(0.65);
+  opacity: 0.75;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.slide:hover {
-  transform: scale(1.02);
+.slide.prev {
+  transform: translateX(-320px);
+}
+
+.slide.active {
+  width: 380px;
+  height: 300px;
+  filter: none;
+  opacity: 1;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  cursor: default;
+  z-index: 3;
+  transform: translateX(0);
+}
+
+.slide.next {
+  transform: translateX(320px);
+}
+
+.slide.hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .slide img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .slide-caption {
-  position: absolute; 
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -574,12 +598,16 @@ footer a{
   color: white;
   padding: 1.5rem 1rem 1rem;
   font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+
+.slide.active .slide-caption {
+  opacity: 1;
+}
+
 .slider-prev, .slider-next {
-  position: absolute; 
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   border: none;
   width: 50px;
   height: 50px;
@@ -589,19 +617,12 @@ footer a{
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   z-index: 10;
-}
-
-.slider-prev {
-  left: 0;
-}
-
-.slider-next {
-  right: 0;
+  flex-shrink: 0;
 }
 
 .slider-prev:hover, .slider-next:hover {
   background: white;
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(1.1);
 }
 
 .cta-fb {
@@ -614,16 +635,19 @@ footer a{
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: #3a2d6f ;
-  color: white; 
+  background: #3a2d6f;
+  color: white;
   text-decoration: none;
   border-radius: 20px;
   transition: all 0.3s ease;
 }
+
 .btn-fb:hover {
   background: #166fe5;
   transform: translateY(-2px);
 }
+
+
 
 .faq-section {
   background-color: #f2eef7;
@@ -1172,28 +1196,23 @@ footer a{
         font-size: 1rem;
     }
 
-  .slide {
-    flex: 0 0 280px;
-    height: 220px;
-  }
-  
-  .slider-container {
-    padding: 1rem 3rem;
-  }
-  
-  .slider-prev, .slider-next {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
+}
+
+  @media (max-width: 768px) {
+  .slider-track { height: 280px; }
+  .slide { width: 150px; height: 130px; }
+  .slide.active { width: 260px; height: 220px; }
+  .slide.prev { transform: translateX(-220px); }
+  .slide.next { transform: translateX(220px); }
 }
 
 @media (max-width: 480px) {
-  .slide {
-    flex: 0 0 250px;
-  }
+  .slider-track { height: 220px; }
+  .slide { width: 110px; height: 100px; }
+  .slide.active { width: 200px; height: 170px; }
+  .slide.prev { transform: translateX(-170px); }
+  .slide.next { transform: translateX(170px); }
 }
-
 /* Recommandé sur tout le site */
 *, *::before, *::after { box-sizing: border-box; }
 
