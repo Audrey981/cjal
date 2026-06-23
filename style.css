@@ -294,7 +294,7 @@ h1 {
 }
 
 .stars {
-  color: #f5b301;
+  color: #241c47;
   font-size: 1.1rem;
   margin-bottom: 8px;
 }
@@ -845,7 +845,7 @@ footer a{
 }
 
 .engagement-photo img {
-  max-width: 300px;
+  max-width: 200px;
   width: 100%;
   height: auto;
   margin: 1rem;
