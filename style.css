@@ -426,13 +426,13 @@ footer a{
 .hero-service {
   position: relative; 
   width: 100vw; /*pleine largeur*/
-  height: 65vh; 
+  min-height: 95vh;
   margin-left: calc(50% - 50vw);
   background: 
     url("images/camion.webp") center/cover no-repeat fixed;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   justify-content: flex-end;
   padding: 1.5rem;
   box-sizing: border-box;  
@@ -453,9 +453,11 @@ footer a{
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: #1f2937;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 5rem 0 0;
   
 }
