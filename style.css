@@ -1189,13 +1189,26 @@ footer a{
         padding: 0 5%;
         min-height: 60vh;
         background-attachment: scroll;  /* Fixe souvent buggé sur mobile */
+        justify-content: center;
+       align-items: center;
+  
     }
+
+      .text-hero-service {
+    margin: 0 auto;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
    .text-hero-service h1 {
   font-size: clamp(28px, 5vw, 42px);  /* ≈30px 375px */
 }
 
     .text-hero-service .secondary-text {
         font-size: 1rem;
+        text-align: center;
     }
 
 }
